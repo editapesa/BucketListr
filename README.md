@@ -2,6 +2,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
+Ever wonder what your live goals would/ should be? Think of the top 8 things in sequential order before you kick the bucket.
 
 ## Installation
 - `npx create-react-app <appname>`
