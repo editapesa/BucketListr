@@ -7,6 +7,7 @@
 - `npx create-react-app <appname>`
 - `npm install --save bootstrap`
 - `npm install axios`
+- `npm install cloudinary`
 
 ## Contributors
 - Darrin Scott Hunter
