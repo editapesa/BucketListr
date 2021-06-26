@@ -8,10 +8,10 @@ function Home() {
     return (       
         <div>
             <Header />
-            <h1>WHAT ARE YOU WAITING FOR?</h1>
+            <h1 className='p-3'>WHAT ARE YOU WAITING FOR?</h1>
             <p>Show the world what you want most out of life.</p>
             <p>People who set goals are 7x more likely to reach them.</p>
-            <button>START RIGHT NOW</button>
+            <button><a href='/signup'>START RIGHT NOW</a></button>
         </div>
     );
 }
