@@ -7,30 +7,20 @@
 //For server-side SDKs, you'll also need to configure your api_key and api_secret. 
 //Below you will find your Cloudinary credentials
 
+//==================this file needs to be in server side folder for require to work==================
 var cloudinary = require('cloudinary');
 
 cloudinary.config({ 
-    cloud_name: 'djigceusu', 
-    api_key: '886819323789982', 
-    api_secret: 'KOBLY7ATchFrgk489A-tOUosZBw' 
+    cloud_name: process.env.cloudName, 
+    api_key: process.env.apiKey, 
+    api_secret: process.env.apiSecret
   });
 
+//==================this file needs to be in public folder for document to work==================
+// var imgPreview = document.getElementById('img-preview');
+// var fileUpload = document.getElementById('file-upload');
 
-  //API Environment variable
-CLOUDINARY_URL=cloudinary://886819323789982.KOBLY7ATchFrgk489A-tOUosZBw@djigceusu
-
-
-// *** below is from pettrax ***
-// let photo;
-
-// CLOUDINARY ---------------------------------------------------
-const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dhx8koumu/upload/';
-const CLOUDINARY_IMAGE = "https://res.cloudinary.com/dhx8koumu/image/upload/";
-const CLOUDINARY_UPLOAD_PRESET = 'pyejztvw';
-
-var imgPreview = document.getElementById('img-preview');
-var fileUpload = document.getElementById('file-upload');
-
+/*
 imgPreview.addEventListener('click', () => {
     fileUpload.click();
 });
@@ -41,10 +31,10 @@ fileUpload.addEventListener('change', function(event) {
     // console.log(file);
     var formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    formData.append('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET);
 
     axios({
-        url: CLOUDINARY_URL,
+        url: process.env.CLOUDINARY_URL,
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -56,7 +46,7 @@ fileUpload.addEventListener('change', function(event) {
         const publicId = res.data.public_id;
         const version = res.data.version;
         // getTransformedImage(format, publicId, version);
-        const newUrl = CLOUDINARY_IMAGE + "c_fill,w_125,h_125,g_auto,r_max/v" + version + "/" + publicId + ".png";
+        const newUrl = process.env.CLOUDINARY_IMAGE + "c_fill,w_125,h_125,g_auto,r_max/v" + version + "/" + publicId + ".png";
         photo = newUrl;
         imgPreview.src = newUrl;
         console.log(imgPreview);
@@ -64,3 +54,4 @@ fileUpload.addEventListener('change', function(event) {
         console.log(err);
     })
 });
+*/
