@@ -7,7 +7,8 @@
     "cloudinary": "^1.26.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.12.15"
+    "mongoose": "^5.12.15",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

@@ -2,10 +2,10 @@
 //displays user option to sign up
 
 import React, { useState } from 'react';
-import Container from '../../components/Container';
-import Col from '../../components/Col';
+import Container from '../components/Container';
+import Col from '../components/Col';
 import Header from '../components/Header';
-import Row from '../../components/Row';
+import Row from '../components/Row';
 
 const Signup = () => {
     const [username, setUsername] = useState();
