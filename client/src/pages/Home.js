@@ -2,7 +2,7 @@
 //displays "what are you waiting for?" & start button
 
 import React from "react";
-import Header from '../../components/Header';
+import Header from '../components/Header';
 
 function Home() {
     return (       
