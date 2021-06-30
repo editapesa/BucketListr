@@ -4,6 +4,8 @@
   "description": "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)",
   "main": "cloudinary.js",
   "dependencies": {
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
     "cloudinary": "^1.26.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
