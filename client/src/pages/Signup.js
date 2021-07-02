@@ -4,7 +4,6 @@
 import React, { useState } from 'react';
 import Container from '../components/Container';
 import Col from '../components/Col';
-import Header from '../components/Header';
 import Row from '../components/Row';
 
 const Signup = () => {
@@ -17,11 +16,22 @@ const Signup = () => {
         console.log('username is ' + username);
         console.log('email is ' + email);
         console.log('password is ' + password);
+
+        fetch('/api/users', {
+            method: 'POST',
+            body: JSON.stringify({ username, email, password }),
+            headers: { 'Content-Type': 'application/json' },
+        }).then(response => {
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                alert('Unable to sign up.')
+            }
+        })   
     };
 
     return (
         <div>
-            <Header />
             <div className='mt-4'>
                 <h2>Sign Up</h2>
             </div>
@@ -60,13 +70,13 @@ const Signup = () => {
                             />
                         </Col>
                     </Row>
-                    <button className='btn btn-success' type='submit'>
+                    <button className='btn btn-success' type='submit'><a href='/dashboard'>
                         Submit
-                    </button>
+                    </a></button>
                 </Container>
             </form>
         </div>
-    );
+    )
 }
 
 export default Signup;

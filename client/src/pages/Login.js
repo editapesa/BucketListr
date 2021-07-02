@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import Container from '../components/Container';
 import Col from '../components/Col';
-import Header from '../components/Header';
+import { Redirect } from 'react-router-dom';
 import Row from '../components/Row';
 
 const Login = () => {
@@ -17,9 +17,16 @@ const Login = () => {
         console.log('password is ' + password);
     };
 
+    function checkIfUserValid() {
+        // if user is valid:
+        // <Redirect to="/dashboard">
+        //    Dashboard
+        // </Redirect>
+        window.location.replace("/dashboard")
+    }
+
     return (
         <div>
-            <Header />
             <div className='mt-4'>
                 <h2>Log In</h2>
             </div>
@@ -47,9 +54,8 @@ const Login = () => {
                             />
                         </Col>
                     </Row>
-                    <button className='btn btn-success' type='submit'>
-                        Submit
-                    </button>
+                    <button className='btn btn-success' type='submit' onClick={() => checkIfUserValid()}>Submit</button>
+                       
                 </Container>
             </form>
         </div>
