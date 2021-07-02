@@ -1,13 +1,15 @@
 {
-  "name": "BucketListr",
+  "name": "bucketlistr",
   "version": "1.0.0",
   "description": "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)",
-  "main": "cloudinary.js",
+  "main": "server.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cloudinary": "^1.26.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.12.15",
+    "mongoose-unique-validator": "^2.0.3",
     "react-router-dom": "^5.2.0"
   },
   "scripts": {
