@@ -8,6 +8,7 @@
 - `npm install --save bootstrap`
 - `npm install axios`
 - `npm install cloudinary`
+- `npm install @auth0/auth0-react`
 
 ## Contributors
 - Darrin Scott Hunter
