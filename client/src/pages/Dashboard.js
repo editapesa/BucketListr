@@ -3,72 +3,50 @@
 //options to add items, or click on an existing item to edit/delete 
 /// edit/delete options will be on another page
 
-import React, { useRef } from "react";
-import { useStoreContext } from '../utils/GlobalState';
-import { ADD_LISTITEM, LOADING } from '../utils/actions';
+import React, { useState, useEffect } from "react";
 import API from '../utils/API';
+import { List, ListItem } from '../components/List';
+import { Link } from 'react-router-dom';
+import Row from '../components/Row';
+import Container from "../components/Container";
 
 function Dashboard() {
-    const titleRef = useRef();
-    const urlRef = useRef();
-    const imageRef = useRef();
-    const [state, dispatch] = useStoreContext();
+    const [listItems, setListItems] = useState([])
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch({ type: LOADING });
-        API.saveListItem({
-            title: titleRef.current.value,
-            url: urlRef.current.value,
-            image: imageRef.current.value,
-        })
-        .then((result) => {
-            dispatch({
-                type: ADD_LISTITEM,
-                listItem: result.data,
-            });
-        })
-        .catch((err) => console.log(err));
+    useEffect(() => {
+        loadListItems()
+    }, [])
 
-        titleRef.current.value = '';
-        urlRef.current.value = '';
-        imageRef.current.value = '';
+    function loadListItems() {
+        API.getListItems()
+           .then(res =>
+               setListItems(res.data)
+           )
+           .catch(err => console.log(err));
     };
 
     return (
-        <div>
-            <div>
-                <h1>Add a New Goal</h1>
-                <form className='form-group mt-3 mb-3' onSubmit={handleSubmit}>
-                    <textarea 
-                        className='form-control'
-                        required 
-                        ref={titleRef}
-                        id='title'
-                        placeholder='Enter a new goal'
-                    />
-                    <input
-                        className='form-control'
-                        ref={urlRef}
-                        id='list item url'
-                        placeholder='https://www.url.com'
-                    />
-                    <label htmlFor='image file'>Choose file</label>
-                    <input
-                        className='custom-file-input'
-                        ref={imageRef}
-                        id='image file'
-                    />
-                    <button
-                        className='btn btn-success'
-                        disabled={state.loading}
-                        type='submit'
-                    >
-                        Save
-                    </button>
-                </form>
-            </div>
-        </div>
+        <Container>
+            <Row>
+               <h3>Add a New Goal</h3>
+               <button> + </button>
+            </Row>
+            <Row>
+                {listItems.length ? (
+                    <List>
+                        {listItems.map(listItem => (
+                            <ListItem key={listItem._id}>
+                                <Link to={'/listitem/' + listItem._id}>
+                                    {listItem.title}
+                                </Link>
+                            </ListItem>
+                    ))}
+                    </List>
+                ) : (
+                    <h3>No List Items to Display</h3>
+                )}
+            </Row>
+        </Container>
     );
 }
 

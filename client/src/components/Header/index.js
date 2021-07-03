@@ -48,15 +48,17 @@ class Header extends React.Component {
         
     }
 
+    // render() {
+    //     const isLoggedIn = this.state.isLoggedIn;
+    //     let button;
+    //     if (isLoggedIn) {
+    //         button = <EditProfileButton onClick={this.editProflieClick} />;
+    //     } else {
+    //         button = <LoginButton onClick={this.handleLoginClick} />;
+    //     }
+    
     render() {
         const isLoggedIn = this.state.isLoggedIn;
-        let button;
-        if (isLoggedIn) {
-            button = <EditProfileButton onClick={this.editProflieClick} />;
-        } else {
-            button = <LoginButton onClick={this.handleLoginClick} />;
-        }
-    
         return (
             <header className='header p-3'>
                 <Row>
@@ -64,14 +66,17 @@ class Header extends React.Component {
                         <h1>BucketListr</h1>
                     </Col>
                     <Col size='6'>
-                        {button}
-                        {/* {isLoggedIn ? 
-                        <EditProfileButton onClick={this.editProflieClick} /> : <LoginButton onClick={this.handleLoginClick} />} */}
+                        {/* {button} */}
+                        {isLoggedIn 
+                        ? <EditProfileButton onClick={this.editProflieClick} /> 
+                        : <LoginButton onClick={this.handleLoginClick} />
+                        }
                     </Col>
                 </Row>
             </header>
         );
     }
+    // }
 }
 
 export default Header;
