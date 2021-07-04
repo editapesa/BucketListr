@@ -9,10 +9,13 @@ import API from '../utils/API';
 import Col from '../components/Col';
 import Row from '../components/Row';
 import Container from "../components/Container";
-import { useAuth0 } from "@auth0/auth0-react";
+//import { useAuth0 } from "@auth0/auth0-react";
 
 function BucketList() {
     const [state, dispatch] = useStoreContext();
+
+    //const [ user ] = useAuth0();
+    //const [ username, photo, bio ] = user;
   
     const getListItems = () => {
         dispatch({ type: LOADING });
@@ -31,14 +34,13 @@ function BucketList() {
       });
 
       // figure out how to get user info
-      const { user } = useAuth0();
-      const { username, photo, bio } = user;
+      let user;
 
       return (
           <div>
-              <image>{photo}</image>
-              <h1>{username}</h1>
-              <p>{bio}</p>
+              <image>{user.photo}</image>
+              <h1>{user.username}</h1>
+              <p>{user.bio}</p>
               {/* change to display only 8 list items  */}
               {state.listItems.length ? (
                 <Container>

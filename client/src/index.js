@@ -2,17 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Auth0Provider } from '@auth0/auth0-react';
+//import { Auth0Provider } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-    <Auth0Provider
-        domain="YOUR_AUTH0_DOMAIN"
-        clientId="YOUR_AUTH0_CLIENT_ID"
-        redirectUri={window.location.origin}
-    >
-        <App />
-    </Auth0Provider>, 
+        <App />,
     document.getElementById('root')
 );
 

@@ -3,34 +3,36 @@
 //stretch goal - add/edit background pic
 
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+//import { useAuth0 } from "@auth0/auth0-react";
 //import API from "../utils/API";
 //import { Link } from "react-router-dom";
 
 //this has to be modified so that profile/user info can be edited
 function Profile() {
-    const { user } = useAuth0();
-    const { username, email, password, photo, bio } = user;
+    //const { user } = useAuth0();
+    //const { username, email, password, photo, bio } = user;
   
+    let user;
+
     return (
       <div>
         <div className="row align-items-center profile-header">
           <div className="col-md-2 mb-3">
             <img
-              src={photo}
+              src={user.photo}
               alt="Profile Pic"
               className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
             />
           </div>
           <div className="col-md text-center text-md-left">
-            <h2>{username}</h2>
-            <p className="lead text-muted">{email}</p>
+            <h2>{user.username}</h2>
+            <p className="lead text-muted">{user.email}</p>
           </div>
           <div className='row'>
-            <p className='text-muted'>{password}</p>
+            <p className='text-muted'>{user.password}</p>
           </div>
           <div className='row'>
-            <p>{bio}</p>
+            <p>{user.bio}</p>
           </div>
         </div>
         <div className="row">

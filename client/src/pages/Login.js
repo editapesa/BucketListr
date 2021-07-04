@@ -4,12 +4,16 @@
 import React, { useState } from "react";
 import Container from '../components/Container';
 import Col from '../components/Col';
-import { Redirect } from 'react-router-dom';
 import Row from '../components/Row';
+//import { Redirect } from 'react-router-dom';
+//import { useAuth0 } from "@auth0/auth0-react";
+import LoginBtn from "../components/LoginBtn";
 
 const Login = () => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+
+    //const { loginWithRedirect } = useAuth0();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -18,11 +22,11 @@ const Login = () => {
     };
 
     function checkIfUserValid() {
-        // if user is valid:
-        // <Redirect to="/dashboard">
-        //    Dashboard
-        // </Redirect>
-        window.location.replace("/dashboard")
+    //     // if user is valid:
+    //     // <Redirect to="/dashboard">
+    //     //    Dashboard
+    //     // </Redirect>
+    //     window.location.replace("/dashboard")
     }
 
     return (

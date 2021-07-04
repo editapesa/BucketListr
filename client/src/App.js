@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import BucketList from './pages/BucketList';
 import EditListItem from './pages/EditListItem';
 import Header from "./components/Header";
+import Profile from './pages/Profile';
 import './App.css';
 
 
@@ -24,7 +25,8 @@ function App() {
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/bucketlist' component={BucketList} />
-        <Route exact path='/editlistitem' component={EditListItem} />
+        <Route path='/editlistitem' component={EditListItem} />
+        <Route exact path='/profile' component={Profile} />
       </div>
     </Router>
   );
