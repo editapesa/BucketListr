@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Container from '../components/Container';
 import Col from '../components/Col';
 import Row from '../components/Row';
+//import SignupBtn from '../components/SignupBtn';
 
 const Signup = () => {
     const [username, setUsername] = useState();
@@ -70,9 +71,8 @@ const Signup = () => {
                             />
                         </Col>
                     </Row>
-                    <button className='btn btn-success' type='submit'><a href='/dashboard'>
-                        Submit
-                    </a></button>
+                    <button>Sign Up</button>  
+                    {/* redirect to dashboard */}
                 </Container>
             </form>
         </div>
