@@ -4,6 +4,7 @@
   "description": "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)",
   "main": "server.js",
   "dependencies": {
+    "@craco/craco": "^6.2.0",
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.26.1",
     "express": "^4.17.1",
@@ -13,18 +14,23 @@
     "react-router-dom": "^5.2.0"
   },
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "_comment-OLD1": "start if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "_comment-OLD2": "start:prod node server.js",
+    "_comment-OLD3": "start:dev concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "start": "cd client && craco start",
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "_comment-OLD4": "build cd client && npm run build",
+    "build": "cd client && craco build",
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
     "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "nodemon": "^1.18.7",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
   },
   "repository": {
     "type": "git",
