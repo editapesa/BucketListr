@@ -9,6 +9,9 @@ Ever wonder what your live goals would/ should be? Think of the top 8 things in 
 - `npm install --save bootstrap`
 - `npm install axios`
 - `npm install cloudinary`
+- `npm install body-parser`
+- `npm install --save passport passport-local`
+- `npm install --save express-session`
 
 ## Contributors
 - Darrin Scott Hunter
