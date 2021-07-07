@@ -9,9 +9,11 @@ import { List, ListItem } from '../components/List';
 import { Link } from 'react-router-dom';
 import Row from '../components/Row';
 import Container from "../components/Container";
+import { Input, AddImage, SaveBtn } from '../components/Form';
 
 function Dashboard() {
     const [listItems, setListItems] = useState([])
+    const [formObject, setFormObject] = useState({})
 
     useEffect(() => {
         loadListItems()
@@ -25,11 +27,53 @@ function Dashboard() {
            .catch(err => console.log(err));
     };
 
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+    };
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.title ) {
+          API.saveListItem({
+            title: formObject.title,
+            // url: formObject.url,
+            // image: formObject.image
+          })
+            .then(res => loadListItems())
+            .catch(err => console.log(err));
+        }
+    };
+
     return (
         <Container>
             <Row>
                <h3>Add a New Goal</h3>
-               <button> + </button>
+            </Row>
+            <Row>
+                <form>
+                    <Input
+                        onChange={handleInputChange}
+                        name="title"
+                        placeholder="Title (required)"
+                    />
+                    <Input
+                        onChange={handleInputChange}
+                        name="url"
+                        placeholder="https://www.url.com (optional)"
+                    />
+                    <AddImage
+                        onChange={handleInputChange}
+                        name="image"
+                        placeholder="Image (optional)"
+                    />
+                    <SaveBtn
+                        disabled={!(formObject.title)}
+                        onClick={handleFormSubmit}
+                    >
+                        Save
+                    </SaveBtn>
+                </form>
             </Row>
             <Row>
                 {listItems.length ? (

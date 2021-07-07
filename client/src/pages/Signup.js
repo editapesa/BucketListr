@@ -5,23 +5,23 @@ import React, { useState } from 'react';
 import Container from '../components/Container';
 import Col from '../components/Col';
 import Row from '../components/Row';
-//import SignupBtn from '../components/SignupBtn';
 
 const Signup = () => {
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
+  
     const handleSubmit = e => {
-        e.preventDefault();
-        console.log('username is ' + username);
-        console.log('email is ' + email);
-        console.log('password is ' + password);
+    console.log('see its running');
+      e.preventDefault();
+      console.log("username is " + username);
+      console.log("email is " + email);
+      console.log("password is " + password);
 
-        fetch('/api/users', {
-            method: 'POST',
-            body: JSON.stringify({ username, email, password }),
-            headers: { 'Content-Type': 'application/json' },
+      fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify({ username, email, password }),
+        headers: { 'Content-Type': 'application/json' },
         }).then(response => {
             if (response.ok) {
                 document.location.replace('/dashboard');
@@ -53,7 +53,7 @@ const Signup = () => {
                         <Col size='12'>
                             <input
                                 className='form-control'
-                                type='email'
+                                type='text'
                                 placeholder='email address'
                                 name='email'
                                 onChange={e => setEmail(e.target.value)}
@@ -71,13 +71,18 @@ const Signup = () => {
                             />
                         </Col>
                     </Row>
-                    <button>Sign Up</button>  
-                    {/* redirect to dashboard */}
+                    <div className="form-group">
+                    </div>                              
                 </Container>
+                        <button 
+                            className="btn btn-success" type='submit'>
+                            Sign Up
+                        </button>
             </form>
         </div>
-    )
+    );
 }
 
 export default Signup;
+
 

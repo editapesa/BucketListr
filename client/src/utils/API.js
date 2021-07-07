@@ -10,11 +10,12 @@ let API =  {
     },
 
     deleteListItem: function(id) {
-        return axios.delete('/api/listitem' + id);
+        return axios.delete('/api/listitem/' + id);
     },
 
     saveListItem: function(listItemData) {
-        return axios.listItem('/api/listitem', listItemData);
+        console.log(listItemData);
+        return axios.post('/api/listitem', listItemData);
     }
 };
 

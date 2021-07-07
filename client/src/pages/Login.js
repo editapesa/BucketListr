@@ -5,29 +5,28 @@ import React, { useState } from "react";
 import Container from '../components/Container';
 import Col from '../components/Col';
 import Row from '../components/Row';
-//import { Redirect } from 'react-router-dom';
-//import { useAuth0 } from "@auth0/auth0-react";
-import LoginBtn from "../components/LoginBtn";
 
 const Login = () => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
-    //const { loginWithRedirect } = useAuth0();
-
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('username is ' + username);
-        console.log('password is ' + password);
-    };
+        console.log("username is " + username);
+        console.log("password is " + password);
 
-    function checkIfUserValid() {
-    //     // if user is valid:
-    //     // <Redirect to="/dashboard">
-    //     //    Dashboard
-    //     // </Redirect>
-    //     window.location.replace("/dashboard")
-    }
+    fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+        }).then(response => {
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                alert('Unable to log in.')
+            }
+        })   
+    };
 
     return (
         <div>
@@ -58,8 +57,12 @@ const Login = () => {
                             />
                         </Col>
                     </Row>
-                    <button className='btn btn-success' type='submit' onClick={() => checkIfUserValid()}>Submit</button>
-                       
+                    <div className='form-group'>
+                        <button 
+                            className='btn btn-success' type='submit'>
+                            Log In
+                        </button>
+                    </div>
                 </Container>
             </form>
         </div>
@@ -67,3 +70,4 @@ const Login = () => {
 }
 
 export default Login;
+
