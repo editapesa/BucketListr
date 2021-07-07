@@ -2,46 +2,48 @@
 //user can add/edit profile pic, brief bio/overview, email, pw
 //stretch goal - add/edit background pic
 
-import React from "react";
-//import { useAuth0 } from "@auth0/auth0-react";
+//import React, { Component } from "react";
 //import API from "../utils/API";
 //import { Link } from "react-router-dom";
 
 //this has to be modified so that profile/user info can be edited
-function Profile() {
-    //const { user } = useAuth0();
-    //const { username, email, password, photo, bio } = user;
-  
-    let user;
+// export default class Profile extends Component {
+//   constructor(props) {
+//     super(props);
 
-    return (
-      <div>
-        <div className="row align-items-center profile-header">
-          <div className="col-md-2 mb-3">
-            <img
-              src={user.photo}
-              alt="Profile Pic"
-              className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
-            />
-          </div>
-          <div className="col-md text-center text-md-left">
-            <h2>{user.username}</h2>
-            <p className="lead text-muted">{user.email}</p>
-          </div>
-          <div className='row'>
-            <p className='text-muted'>{user.password}</p>
-          </div>
-          <div className='row'>
-            <p>{user.bio}</p>
-          </div>
-        </div>
-        <div className="row">
-          <pre className="col-12 text-light bg-dark p-4">
-            {JSON.stringify(user, null, 2)}
-          </pre>
-        </div>
-      </div>
-    );
-  };
+//     this.state = {
+      
+//     };
+//   }
+
+//   render() {
+//     const { currentUser } = this.state;
+
+//     return (
+//       <div>
+//         <div className="row align-items-center profile-header">
+//           <div className="col-md text-center text-md-left">
+//             <h2>{currentUser.username}</h2>
+//           </div>
+//           <div className="col-md-2 mb-3">
+//             <img
+//               src={currentUser.photo}
+//               alt="Profile Pic"
+//               className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
+//             />
+//           </div>
+//           <div className='row'>
+//             <p className="lead text-muted">{currentUser.email}</p>
+//           </div>
+//           <div className='row'>
+//             <p className='text-muted'>{currentUser.password}</p>
+//           </div>
+//           <div className='row'>
+//             <p>{currentUser.bio}</p>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
   
-  export default Profile;

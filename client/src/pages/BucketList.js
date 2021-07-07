@@ -9,13 +9,9 @@ import API from '../utils/API';
 import Col from '../components/Col';
 import Row from '../components/Row';
 import Container from "../components/Container";
-//import { useAuth0 } from "@auth0/auth0-react";
 
 function BucketList() {
     const [state, dispatch] = useStoreContext();
-
-    //const [ user ] = useAuth0();
-    //const [ username, photo, bio ] = user;
   
     const getListItems = () => {
         dispatch({ type: LOADING });

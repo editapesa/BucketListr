@@ -8,7 +8,9 @@
 - `npm install --save bootstrap`
 - `npm install axios`
 - `npm install cloudinary`
-- `npm install @auth0/auth0-react`
+- `npm install body-parser`
+- `npm install --save passport passport-local`
+- `npm install --save express-session`
 
 ## Contributors
 - Darrin Scott Hunter

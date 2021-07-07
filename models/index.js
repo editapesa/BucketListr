@@ -1,7 +1,7 @@
-module.exports = {
-    ListItem: require('./listitem')    
-};
+const ListItem = require('./listitem');
+const User = require('./user');
 
 module.exports = {
-    User: require('./user')
+    ListItem,    
+    User
 };
