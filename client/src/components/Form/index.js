@@ -33,7 +33,7 @@ export function SaveBtn(props) {
     );
 }
 
-export function DeleteBtn(props) {
+export function DeleteOption(props) {
     return (
         <button {...props} style={{ float: 'right' }} className='btn btn-danger'>
             {props.children}

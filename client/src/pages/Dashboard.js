@@ -9,7 +9,9 @@ import { List, ListItem } from '../components/List';
 import { Link } from 'react-router-dom';
 import Row from '../components/Row';
 import Container from "../components/Container";
-import { Input, AddImage, SaveBtn } from '../components/Form';
+import { Input, SaveBtn } from '../components/Form';
+import DeleteBtn from "../components/DeleteBtn";
+import UploadImage from "../components/UploadImage";
 
 function Dashboard() {
     const [listItems, setListItems] = useState([])
@@ -27,6 +29,12 @@ function Dashboard() {
            .catch(err => console.log(err));
     };
 
+    function deleteListItem(id) {
+        API.deleteListItem(id)
+            .then(res => loadListItems())
+            .catch(err => console.log(err));
+    };
+
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -37,8 +45,8 @@ function Dashboard() {
         if (formObject.title ) {
           API.saveListItem({
             title: formObject.title,
-            // url: formObject.url,
-            // image: formObject.image
+            url: formObject.url,
+            image: formObject.image
           })
             .then(res => loadListItems())
             .catch(err => console.log(err));
@@ -62,11 +70,8 @@ function Dashboard() {
                         name="url"
                         placeholder="https://www.url.com (optional)"
                     />
-                    <AddImage
-                        onChange={handleInputChange}
-                        name="image"
-                        placeholder="Image (optional)"
-                    />
+                    <UploadImage />
+
                     <SaveBtn
                         disabled={!(formObject.title)}
                         onClick={handleFormSubmit}
@@ -81,8 +86,10 @@ function Dashboard() {
                         {listItems.map(listItem => (
                             <ListItem key={listItem._id}>
                                 <Link to={'/listitem/' + listItem._id}>
-                                    {listItem.title}
+                                    {listItem.title} 
                                 </Link>
+                                
+                                <DeleteBtn onClick={() => deleteListItem(listItem._id)} />
                             </ListItem>
                     ))}
                     </List>
