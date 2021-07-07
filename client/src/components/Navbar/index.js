@@ -50,10 +50,6 @@ class Navbar extends Component {
                                 <Link to="/login" className='btn btn-link text-dark'>
                                     <span className='text-dark'>Log In</span></Link>
                             </Col>
-                            <Col size='4'>
-                                <Link to="/signup" className='btn btn-link text-dark'>
-                                    <span className='text-dark'>Sign Up</span></Link>
-                            </Col>
                         </div>
                     )}
                 </Row>   
