@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import { useParams } from 'react-router-dom';
 import API from '../utils/API';
-import { Input, AddImage, SaveBtn, DeleteBtn } from '../components/Form';
+import { Input, AddImage, SaveBtn, DeleteOption } from '../components/Form';
 import Row from '../components/Row';
 import Container from "../components/Container";
 //import Col from '../components/Col';
@@ -51,9 +51,9 @@ function EditListItem(props) {
                 <SaveBtn onClick={() => saveListItem(listItem._id)}>
                     Save
                 </SaveBtn>
-                <DeleteBtn onClick={() => deleteListItem(listItem._id)}>
+                <DeleteOption onClick={() => deleteListItem(listItem._id)}>
                     Delete
-                </DeleteBtn>     
+                </DeleteOption>     
             </Row>
         </Container>
     );
