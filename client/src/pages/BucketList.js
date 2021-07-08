@@ -35,7 +35,7 @@ function BucketList() {
               <Row>
                 {listItems.length ? (
                     <List>
-                        {listItems.map(listItem => (
+                        {listItems.slice(0,8).map(listItem => (
                             <ListItem key={listItem._id}>
                                 <Link to={listItem.url + listItem._id}>
                                     {listItem.title} 

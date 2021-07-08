@@ -1,4 +1,7 @@
 import React from 'react';
+//import { AddImage } from '../Form';
+import Row from '../Row';
+import Col from '../Col';
 
 class UploadImage extends React.Component{
     state = {
@@ -34,21 +37,19 @@ class UploadImage extends React.Component{
         const { imageUrl, imageAlt } = this.state;
 
         return (
-            <div className="Cloudinary">
-                <section className="left-side">
-                    <div className="card-pic">
+            <Row className="Cloudinary">
+                <form className='form-group'>
+                    <div className="form-control">
+                    
                         <input type="file"/>
-                    </div>
-
-                    <button type="button" className="btn" onClick={this.handleImageUpload}>Submit</button>
-                </section>
-                <section className="right-side">
-                    <p>The resulting image will be displayed here</p>
-                    {imageUrl && (
-                        <img src={imageUrl} alt={imageAlt} className="displayed-image"/>
-                    )}
-                </section>
-            </div>
+                        <button type="button" className="btn btn-light btn-outline-secondary" onClick={this.handleImageUpload}>Submit</button>
+                        <p>View image here</p>
+                        {imageUrl && (
+                            <img src={imageUrl} alt={imageAlt} className="displayed-image"/>
+                        )} 
+                    </div>   
+                </form>
+            </Row>
         );
     }
 }
