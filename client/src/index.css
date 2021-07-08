@@ -51,6 +51,13 @@ body {
   background-color: var(--bl-plum-1);
 }
 
+a,
+a:active,
+a:hover,
+a:visited {
+  color: var(--bl-gray-4);
+}
+
 li {
   font-size: 0.9em;
   text-transform: uppercase;
@@ -58,6 +65,7 @@ li {
 }
 
 li > a,
+a:active,
 a:hover,
 a:visited {
   color: var(--bl-gray-4);
@@ -76,6 +84,10 @@ h6 {
 ELEMENTS
 ****************************/
 
+body > #root > div {
+  height: 100vh;
+}
+
 /****************************
 CLASSES
 ****************************/
@@ -84,9 +96,31 @@ CLASSES
   background-color: var(--bl-plum-3);
 }
 
-.btn-closed {
+.text-white {
+  color: white;
 }
-.btn-open {
+
+.text-plum {
+  color: var(--bl-plum-3);
+}
+
+.home-backpic {
+  background-image: url("./assets/img/Hang-Gliding-01.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bucketlist-backpic {
+  background-image: url("./assets/img/Travel_Norway.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bucketlistDiv {
+  min-height: 100%;
+  height: 100%;
 }
 
 /****************************
