@@ -11,7 +11,7 @@ import Container from "../components/Container";
 
 function BucketList() {
     const [listItems, setListItems] = useState([])
-  
+
     useEffect(() => {
       loadListItems()
     }, [])
@@ -27,29 +27,32 @@ function BucketList() {
       // figure out how to get user info
 
       return (
-          <Container>
-              {/* <image>{user.photo}</image>
-              <h1>{user.username}</h1>
-              <p>{user.bio}</p> */}
-              <Link to="/dashboard">Dashboard</Link>
-              <Row className="p-4">
-                {listItems.length ? (
-                    <List>
-                        {listItems.slice(0,8).map(listItem => (
-                            <ListItem key={listItem._id}>
-                                <Link to={listItem.url + listItem._id}>
-                                    {listItem.title} 
-                                </Link>
-                            </ListItem>
-                    ))}
-                    </List>
-                  ) : (
-                    <h3>No List Items to Display</h3>
-                )}
-              </Row>
-          </Container>
+
+          <div class="bucketlistDiv bucketlist-backpic">
+            <Container>
+                {/* <image>{user.photo}</image>
+                <h1>{user.username}</h1>
+                <p>{user.bio}</p> */}
+                {/* change to display only 8 list items  */}
+                <Link to="/dashboard">Dashboard</Link>                
+                <Row>
+                  {listItems.length ? (
+                      <List>
+                          {listItems.slice(0,8).map(listItem => (
+                              <ListItem key={listItem._id}>
+                                  <Link to={listItem.url + listItem._id}>
+                                      {listItem.title}
+                                  </Link>
+                              </ListItem>
+                      ))}
+                      </List>
+                    ) : (
+                      <h3>No List Items to Display</h3>
+                  )}
+                </Row>
+            </Container>
+          </div>
       );
     }
 
     export default BucketList;
-    
