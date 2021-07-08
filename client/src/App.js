@@ -8,6 +8,7 @@ import BucketList from './pages/BucketList';
 import EditListItem from './pages/EditListItem';
 import Navbar from "./components/Navbar";
 import Profile from './pages/Profile';
+import './index.css';
 import './App.css';
 
 function App() {
