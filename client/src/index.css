@@ -1,13 +1,94 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/****************************
+GLOBAL VARIABLES
+****************************/
+:root {
+  --bl-plum-0: #e7e7ee;
+  --bl-plum-1: #a9a9d6;
+  --bl-plum-2: #8686a8;
+  --bl-plum-3: #545468;
+  --bl-gray-1: #b2b2b2;
+  --bl-gray-2: #8c8c8c;
+  --bl-gray-3: #595959;
+  --bl-gray-4: #333333;
+  --bl-red-3: #803760;
+  --bl-yellow-0: #ebead5;
+  --bl-yellow-1: #c2be7a;
+  --bl-yellow-2: #8c884d;
+  --bl-yellow-3: #59551f;
+  --font-regular: "FirsNeue-Regular";
+  --font-bold: "FirsNeue-Bold";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/****************************
+GLOBAL TYPOGRAPHY
+****************************/
+@font-face {
+  font-family: "FirsNeue-Regular";
+  src: url("./assets/fonts/FirsNeue-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
+@font-face {
+  font-family: "FirsNeue-Bold";
+  src: url("./assets/fonts/FirsNeue-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+body,
+p,
+a,
+form,
+button,
+input,
+ol,
+ul,
+li {
+  font-family: var(--font-regular);
+}
+
+body {
+  background-color: var(--bl-plum-1);
+}
+
+li {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+li > a,
+a:hover,
+a:visited {
+  color: var(--bl-gray-4);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-bold);
+}
+
+/****************************
+ELEMENTS
+****************************/
+
+/****************************
+CLASSES
+****************************/
+.btn {
+  color: white;
+  background-color: var(--bl-plum-3);
+}
+
+.btn-closed {
+}
+.btn-open {
+}
+
+/****************************
+IDs
+****************************/

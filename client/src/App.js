@@ -13,7 +13,8 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div> 
+      {/* Main App Container */}
+      <div classname="mainAppContainer">
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
@@ -22,7 +23,7 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/bucketlist' component={BucketList} />
           <Route path='/listitem/:id' component={EditListItem} />
-          <Route exact path='/profile' component={Profile} />     
+          <Route exact path='/profile' component={Profile} />
         </Switch>
       </div>
     </Router>

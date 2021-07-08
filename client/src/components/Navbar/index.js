@@ -3,8 +3,6 @@ import axios from 'axios';
 import Row from '../Row';
 import Col from '../Col';
 import { Link } from 'react-router-dom';
-//import style file ?
-
 
 class Navbar extends Component {
     constructor() {
@@ -32,27 +30,21 @@ class Navbar extends Component {
         console.log(this.props);
 
         return (
-            <header className='navbar p-3'>
+            <header className='navbar p-3 justify-content-between'>
                 <Row>
-                    <Col size='4'>
-                        <h1>BucketListr</h1>
-                    </Col>                   
-                        {loggedIn ? (
-                            <div className='navbar'>
-                                <Col size='4'>
-                                    <Link to="/" className='btn btn-link text-dark' onClick={this.logout}>
-                                    <span className='text-dark'>Log Out</span></Link>
-                                </Col>
-                            </div>            
-                ) : (                  
-                        <div className='navbar'>
-                            <Col size='4'>
-                                <Link to="/login" className='btn btn-link text-dark'>
-                                    <span className='text-dark'>Log In</span></Link>
-                            </Col>
-                        </div>
+                    <Col size='12'>
+                        <h2>BucketListr</h2>
+                    </Col>
+                    {loggedIn ? (
+                        <Col size='6'>
+                            <Link to="/" className='btn' onClick={this.logout}>Log Out</Link>
+                        </Col>
+                    ) : (
+                        <Col size='6'>
+                            <Link to="/login" className='btn'>Log In</Link>
+                        </Col>
                     )}
-                </Row>   
+                </Row>
             </header>
         );
     }
