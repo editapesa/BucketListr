@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Row from '../Row';
 import Col from '../Col';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 //import style file ?
 
 
@@ -37,7 +37,7 @@ class Navbar extends Component {
                     <Col size='4'>
                         <h1>BucketListr</h1>
                     </Col>                   
-                        {loggedIn ? (
+                        {/* {loggedIn ? (
                             <div className='navbar'>
                                 <Col size='4'>
                                     <Link to="/" className='btn btn-link text-dark' onClick={this.logout}>
@@ -51,7 +51,7 @@ class Navbar extends Component {
                                     <span className='text-dark'>Log In</span></Link>
                             </Col>
                         </div>
-                    )}
+                    )} */}
                 </Row>   
             </header>
         );

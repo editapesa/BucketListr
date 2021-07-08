@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 function Home() {
     return (       
         <div>
+            <Link to='/login' style={{ padding: '40px' }}>Log In</Link>
             <h1 className='p-3 text-center'>WHAT ARE YOU WAITING FOR?</h1>
             <p className='text-center'>Show the world what you want most out of life.</p>
             <p className='text-center'>People who set goals are 7x more likely to reach them.</p>

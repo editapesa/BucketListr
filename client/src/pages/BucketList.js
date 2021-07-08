@@ -31,8 +31,8 @@ function BucketList() {
               {/* <image>{user.photo}</image>
               <h1>{user.username}</h1>
               <p>{user.bio}</p> */}
-              {/* change to display only 8 list items  */}
-              <Row>
+              <Link to="/dashboard">Dashboard</Link>
+              <Row className="p-4">
                 {listItems.length ? (
                     <List>
                         {listItems.slice(0,8).map(listItem => (
