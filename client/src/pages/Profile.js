@@ -2,48 +2,88 @@
 //user can add/edit profile pic, brief bio/overview, email, pw
 //stretch goal - add/edit background pic
 
-//import React, { Component } from "react";
-//import API from "../utils/API";
-//import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import API from "../utils/API";
+import { Link, useParams } from "react-router-dom";
+import Container from "../components/Container";
+import Row from "../components/Row";
+import Col from '../components/Col';
+import { List, ListItem } from '../components/List';
+import { Input, TextArea, SaveBtn } from '../components/Form';
+import UploadImage from "../components/UploadImage";
 
-//this has to be modified so that profile/user info can be edited
-// export default class Profile extends Component {
-//   constructor(props) {
-//     super(props);
+function Profile(props) {
+    const [user, setUser] = useState([])
+    const [formObject, setFormObject] = useState({})
 
-//     this.state = {
-      
-//     };
-//   }
+    //const {id} = useParams()
+    useEffect(() => {
+        API.getUser()
+            .then(res => setUser(res.data))
+            .catch(err => console.log(err));
+    }, [])
 
-//   render() {
-//     const { currentUser } = this.state;
+    const loadUser=(id) => {
+        API.getUser(id)
+        .catch(err => console.log(err));
+    };
 
-//     return (
-//       <div>
-//         <div className="row align-items-center profile-header">
-//           <div className="col-md text-center text-md-left">
-//             <h2>{currentUser.username}</h2>
-//           </div>
-//           <div className="col-md-2 mb-3">
-//             <img
-//               src={currentUser.photo}
-//               alt="Profile Pic"
-//               className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
-//             />
-//           </div>
-//           <div className='row'>
-//             <p className="lead text-muted">{currentUser.email}</p>
-//           </div>
-//           <div className='row'>
-//             <p className='text-muted'>{currentUser.password}</p>
-//           </div>
-//           <div className='row'>
-//             <p>{currentUser.bio}</p>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-  
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+    };
+
+    function saveUser(id) {
+        API.saveUser(id)
+        .then(res => loadUser())
+        .catch(err => console.log(err));
+    }
+
+    return (
+        <Container>
+            <Row>
+                <Col size='6'>
+                    <List>
+                        <ListItem key={user._id}>
+                            <h1> {user.username} </h1>
+                            <p> {user.photo} </p>
+                        </ListItem>
+                    </List>
+                </Col>
+                <Col size='6'>
+                    <Row>
+                        <Link to='/dashboard'>Dashboard</Link>
+                    </Row>
+                    <Row>
+                        <Link to='/bucketlist'>View List</Link>
+                    </Row>
+                </Col>
+            </Row>
+            <Row>
+                <TextArea
+                    onChange={handleInputChange}
+                    name='bio'
+                >
+                    Update Overview
+                </TextArea>
+                <Input
+                    onChange={handleInputChange}
+                    name='email'
+                    placeholder='Update Email'
+                />
+                <Input
+                    onChange={handleInputChange}
+                    name='password'
+                    placeholder='Update Password'
+                />
+                <UploadImage />
+                <SaveBtn onClick={() => saveUser(user._id)}>
+                    Save
+                </SaveBtn>
+            </Row>
+        </Container>
+    )
+}
+
+export default Profile;
+

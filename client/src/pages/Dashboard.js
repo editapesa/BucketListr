@@ -56,6 +56,7 @@ function Dashboard() {
     return (
         <Container>
             <Row>
+                <p><Link to='/profile'>Profile</Link></p>
                <h3>Add a New Goal</h3>
             </Row>
             <Row>
