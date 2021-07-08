@@ -32,6 +32,7 @@ class Navbar extends Component {
         return (
             <header className='navbar p-3 justify-content-between'>
                 <Row>
+
                     <Col size='12'>
                         <h2>BucketListr</h2>
                     </Col>

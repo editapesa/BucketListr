@@ -27,12 +27,14 @@ function BucketList() {
       // figure out how to get user info
 
       return (
+
           <div class="bucketlistDiv bucketlist-backpic">
             <Container>
                 {/* <image>{user.photo}</image>
                 <h1>{user.username}</h1>
                 <p>{user.bio}</p> */}
                 {/* change to display only 8 list items  */}
+                <Link to="/dashboard">Dashboard</Link>                
                 <Row>
                   {listItems.length ? (
                       <List>
