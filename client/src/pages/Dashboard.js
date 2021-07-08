@@ -60,7 +60,7 @@ function Dashboard() {
                <h3>Add a New Goal</h3>
             </Row>
             <Row>
-                <form>
+                <form className="p-3">
                     <Input
                         onChange={handleInputChange}
                         name="title"
@@ -71,15 +71,20 @@ function Dashboard() {
                         name="url"
                         placeholder="https://www.url.com (optional)"
                     />
-                    <UploadImage />
-
+                    <UploadImage
+                    
+                        onChange={handleInputChange}
+                        name="image"
+                        placeholder="Select file (optional)"
+                    />
                     <SaveBtn
                         disabled={!(formObject.title)}
                         onClick={handleFormSubmit}
                     >
                         Save
-                    </SaveBtn>
+                    </SaveBtn>                   
                 </form>
+                    
             </Row>
             <Row>
                 {listItems.length ? (

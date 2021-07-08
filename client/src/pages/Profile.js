@@ -45,8 +45,8 @@ function Profile(props) {
                 <Col size='6'>
                     <List>
                         <ListItem key={user._id}>
-                            <h1> {user.username} </h1>
-                            <p> {user.photo} </p>
+                            <h1> {user.username} Username</h1>
+                            <p>{user.photo} Profile pic</p>
                         </ListItem>
                     </List>
                 </Col>
@@ -77,6 +77,7 @@ function Profile(props) {
                     placeholder='Update Password'
                 />
                 <UploadImage />
+
                 <SaveBtn onClick={() => saveUser(user._id)}>
                     Save
                 </SaveBtn>

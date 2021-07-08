@@ -3,21 +3,14 @@
 
 ## Description
 
-## Installation
-- `npx create-react-app <appname>`
-- `npm install --save bootstrap`
-- `npm install axios`
-- `npm install cloudinary`
-- `npm install body-parser`
-- `npm install --save passport passport-local`
-- `npm install --save express-session`
-
 ## Contributors
-- Darrin Scott Hunter
-- Shuo Zhu
-- Mahamed Ahmed
-- Keith Tatad
-- Edita Pesa
+- [Darrin Scott Hunter](https://github.com/dishdesigner)
+- [Shuo Zhu](https://github.com/szdesigns)
+- [Mahamed Ahmed](https://github.com/mahamedahmed614)
+- [Edita Pesa](https://github.com/editapesa)
+
+## Visuals
+Visit the app here: [BucketListr](https://radiant-tor-73705.herokuapp.com/)
 
 ## License
 This project is licensed under the MIT license. Click the link below for more info.

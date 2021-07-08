@@ -37,7 +37,6 @@ function EditListItem(props) {
 
     return (
         <Container>
-            <div>Hello</div>
             <Row>         
                 <Input>
                     {listItem.title}
